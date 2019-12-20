@@ -34,7 +34,7 @@ public class GurobiToConfusion {
 		ArrayList<Double> alpha = new ArrayList<Double>();
 		String line;
 		Double beta = 0.0;
-		String objValue;
+		String objValue = "";
 		try{
 			br = new BufferedReader(new FileReader(args[1]));
 			while ((line = br.readLine()) != null) {
@@ -102,7 +102,11 @@ public class GurobiToConfusion {
 				}
 			}
 		}
-		System.out.println("bot human");
+		double accuracy = (confusionMatrix[0][0] + confusionMatrix[1][1]) / (double) testSet.size();
+				
+		System.out.println("Objective value: " + objValue + "\n");
+		System.out.println("Overall Accuracy: " + accuracy);
+		System.out.println("Confusion matrix:\nbot human");
 		System.out.println(confusionMatrix[0][0] + " " + confusionMatrix[0][1] + " bot");
 		System.out.println(confusionMatrix[1][0] + " " + confusionMatrix[1][1] + " human");
 	}

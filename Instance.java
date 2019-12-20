@@ -52,9 +52,9 @@ public class Instance{
 		}
 
 		if(getLabel() == 1){
-			return sln >= 0;
-		} else{
 			return sln <= 0;
+		} else{
+			return sln >= 0;
 		}
 
 	}

@@ -64,7 +64,7 @@ public class CSVToGurobi {
 		    	}
 		    	index++;
 		    	constraints.add("" + botOrNot + index +  i.getConstriantDotProduct(operator) + " " + operator + " BETA >= 1\n");
-				bounds.add("" + botOrNot + index + " - 1 >= 0\n");
+				bounds.add("" + botOrNot + index + " >= 0\n");
 		    }
 
 		    //sets the objective string.
