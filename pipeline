@@ -1,0 +1,10 @@
+#!/bin/bash
+#Usage
+
+javac *.java
+java CSVToGurobi $1 __tmp_gurobi.lp __tmp_test_set  
+gurobi_cl ResultFile=__sol.sol __tmp_gurobi.lp  > /dev/null
+grep -E "(ALPHA)|#|(BETA)" __sol.sol > __sol_trimmed  
+java GurobiToConfusion __tmp_test_set __sol_trimmed 
+
+#rm *.class __tmp_gurobi.lp __sol.sol __sol_trimmed __tmp_test_set
